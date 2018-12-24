@@ -1,25 +1,40 @@
-version: '2'
-
+version: "2"
 services:
-  app:
-    container_name: app
+  web:
     restart: always
-    build: ./app
-    ports:
-      - "8000:8000"
+    build: ./web
+    expose:
+      - "8000"
+    # links:
+    #   - postgres:postgres
     volumes:
-     - /home/project/app/static
-    command: gunicorn -w 4 -b :8000 app:app
+      - /usr/src/app/static
+    # env_file: .env
+    command: /usr/local/bin/gunicorn -w 2 -b :8000 app:app
 
   nginx:
-    container_name: nginx
     restart: always
     build: ./nginx
     ports:
       - "80:80"
-    depends_on:
-      - app
     volumes:
-     - /www/static
+      - /www/static
     volumes_from:
-     - app
+      - web
+    links:
+      - web:web
+
+  # data:
+  #   restart: always
+  #   image: postgres:latest
+  #   volumes:
+  #     - /var/lib/postgresql
+  #   command: true
+
+  # postgres:
+  #   restart: always
+  #   image: postgres:latest
+  #   volumes_from:
+  #     - data
+  #   ports:
+  #     - "5432:5432"
