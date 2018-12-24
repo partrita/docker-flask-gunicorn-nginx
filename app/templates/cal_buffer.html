@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container">
+    <!-- description -->
+    <div class="py-5 text-center">
+        <img class="d-block mx-auto mb-4" src="{{ url_for('static', filename='img/calculator.png')}}" alt="" width="72"
+            height="72">
+        <h2>버퍼 몰 농도 계산기</h2>
+        <p class="lead">
+            Stock solution을 만들기 위한 몰 농도 계산기
+        </p>
+    </div>
+    <!-- show_results  -->
+    <div class="row">
+        <div class="col-md-4 order-md-2 mb-4">
+            {% if result != None %}
+            <h4 class="d-flex justify-content-between align-items-center mb-3">
+                <span class="text-muted">Your Results</span>
+                <!-- <span class="badge badge-secondary badge-pill">3</span> -->
+            </h4>
+
+            <ul class="list-group mb-3">
+                <li class="list-group-item d-flex justify-content-between">
+                    <div>
+                        <h6 class="my-0">
+                            필요한 시약의 양
+                        </h6>
+                        <strong>{{ result['g'] }}</strong>
+                        <small class="text-muted">g</small>
+                    </div>
+                </li>
+                <li class="list-group-item d-flex justify-content-between">
+                    <div>
+                        <h6 class="my-0">
+                            필요한 시약의 양
+                        </h6>
+                        <strong>
+                            {{ result['mg'] }}
+                        </strong>
+                        <small class="text-muted">mg</small>
+                    </div>
+                </li>
+            </ul>
+            {% endif %}
+
+        </div>
+        <!-- input_form -->
+
+        <div class="col-md-8 order-md-1">
+            <h4 class="mb-3">사용자 입력</h4>
+            <form method=post action="">
+                {{form.csrf_token}}
+                <div class="mb-3">
+                    {{ form.molecular_weight.label }}
+                    <!-- <label for="userinput1">Molecular weight</label> -->
+                    <div class="row">
+
+                        <div class="col-md-5 input-group">
+                            {{ form.molecular_weight(class="form-control") }}
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="userinput2">원하는 버퍼의 몰 농도</label>
+                    <div class="row">
+                        <div class="col-md-5 mb-3">
+                            {{ form.molar(class="form-control") }}
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            {{ form.molar_unit(class="custom-select d-block w-100") }}
+                        </div>
+                    </div>
+
+                    <label for="userinput3">원하는 버퍼의 부피</label>
+                    <div class="row">
+                        <div class="col-md-5 mb-3">
+                            {{ form.volume(class="form-control") }}
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            {{ form.volume_unit(class="custom-select d-block w-100") }}
+                        </div>
+                    </div>
+                </div>
+                <hr class="mb-4">
+                {{ form.submit(class="btn btn-primary btn-lg btn-block")}}
+            </form>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}

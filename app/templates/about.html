@@ -1,0 +1,139 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<!-- Page Content -->
+<div class="container wow fadeIn">
+
+  <!-- Page Heading/Breadcrumbs -->
+  <h1 class="mt-4 mb-3">About
+    <!-- <small>Biohacker</small> -->
+  </h1>
+
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item">
+      <a href="\">Home</a>
+    </li>
+    <li class="breadcrumb-item active">About</li>
+  </ol>
+
+  <!-- Intro Content -->
+  <div class="row">
+    <div class="col-md-6">
+      <img class="img-fluid rounded mb-4" src="{{ url_for('static', filename='img/about.jpg')}}" alt="">
+    </div>
+    <div class="col-md-6">
+      <h2>About us</h2>
+      <p>
+        Your life as a scientific researcher should be a adventure into the understanding of nature.
+        But if you are like most, intense pressure to produce more results for the publications. Squeezing the life out
+        of you.
+      </p>
+      <p>
+        This squeeze, and overwhelming stress you feel in the lab. Biohack is here to help you. We are helping
+        researchers like you. We can not make you free from your stress and pushing for results, but we can make your
+        life little easier.
+      </p>
+      <p>
+        We do this because science conducted in joy is better for you, it’s better for science and it’s better for the
+        world you serve as a scientist.
+      </p>
+    </div>
+  </div>
+  <!-- /.row -->
+
+  <!-- Team Members -->
+  <h2>Our Team</h2>
+
+  <div class="row">
+    <div class="col-md-3 mb-4">
+      <div class="card h-100 text-center">
+        <img class="card-img-top" src="{{ url_for('static', filename='img/img_avatar2.png')}}" alt="">
+        <div class="card-body">
+          <h4 class="card-title">Joconan</h4>
+          <h6 class="card-subtitle mb-2 text-muted">Team Leader</h6>
+          <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus aut mollitia eum
+            ipsum fugiat odio officiis odit.</p>
+        </div>
+        <div class="card-footer">
+          <a href="#">joconan@gmail.com</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3 mb-4">
+      <div class="card h-100 text-center">
+        <img class="card-img-top" src="{{ url_for('static', filename='img/img_avatar1.png')}}" alt="">
+        <div class="card-body">
+          <h4 class="card-title">Momore hatz</h4>
+          <h6 class="card-subtitle mb-2 text-muted">Coder</h6>
+          <p class="card-text">Lorem ipsum dolor sit amet, conipsum fugiat odio officiis odit.</p>
+        </div>
+        <div class="card-footer">
+          <a href="#">partrita@gmail.com</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3 mb-4">
+      <div class="card h-100 text-center">
+        <img class="card-img-top" src="{{ url_for('static', filename='img/img_avatar1.png')}}" alt="">
+        <div class="card-body">
+          <h4 class="card-title">Momore hatz</h4>
+          <h6 class="card-subtitle mb-2 text-muted">Coder</h6>
+          <p class="card-text">Lorem ipsum dolor sit amet, conipsum fugiat odio officiis odit.</p>
+        </div>
+        <div class="card-footer">
+          <a href="#">partrita@gmail.com</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3 mb-4">
+      <div class="card h-100 text-center">
+        <img class="card-img-top" src="{{ url_for('static', filename='img/pi3.jpg')}}" alt="">
+        <div class="card-body">
+          <h4 class="card-title">Raspberry Pi</h4>
+          <h6 class="card-subtitle mb-2 text-muted">Server</h6>
+          <p class="card-text">Single-board computer with wireless LAN and Bluetooth connectivity</p>
+        </div>
+        <div class="card-footer">
+          <a href="https://www.raspberrypi.org/products/raspberry-pi-3-model-b/">Learn more</a>
+        </div>
+      </div>
+    </div>
+    <!-- /.row -->
+
+    <!-- Our Customers -->
+    <hr class="mb-4">
+    <h2>Not Our Customers</h2>
+    <div class="row">
+      <div class="col-lg-2 col-sm-4 mb-4">
+        <img class="img-fluid" src="{{url_for('static', filename='img/logo_bd.jpg')}}" alt="bd">
+      </div>
+      <div class="col-lg-2 col-sm-4 mb-4">
+        <img class="img-fluid" src="{{url_for('static', filename='img/logo_qiagen.jpg')}}" alt="qiagen">
+      </div>
+      <div class="col-lg-2 col-sm-4 mb-4">
+        <img class="img-fluid" src="{{url_for('static', filename='img/logo_genscript.jpg')}}" alt="genscript">
+      </div>
+      <div class="col-lg-2 col-sm-4 mb-4">
+        <img class="img-fluid" src="{{url_for('static', filename='img/logo_neb.png')}}" alt="neb">
+      </div>
+      <div class="col-lg-2 col-sm-4 mb-4">
+        <img class="img-fluid" src="{{url_for('static', filename='img/logo_takara.png')}}" alt="takara">
+      </div>
+      <div class="col-lg-2 col-sm-4 mb-4">
+        <img class="img-fluid" src="{{url_for('static', filename='img/logo_thermo.jpg')}}" alt="thermo">
+      </div>
+    </div>
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+      Actually, we are the customers of them.
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <!-- /.row -->
+    <hr class="mb-4">
+  </div>
+</div>
+<!-- /.container -->
+
+{% endblock %}

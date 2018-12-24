@@ -1,0 +1,138 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<main role="main">
+
+  <section class="jumbotron text-center jumbotron-billboard">
+      <div class="container">
+        <h1 class="jumbotron-heading">Welcome to biohack</h1>
+        <p class="lead text-muted">Your life as a scientific researcher should be Easier.</p>
+        <!-- That’s why you need Biohack. -->
+        <p>
+          <a href="/about" class="btn btn-primary my-2">Read more</a>
+          <a href="#" class="btn btn-secondary my-2">Less</a>
+        </p>
+      </div>
+    </section>
+
+  <div class="album py-3 bg-light wow fadeIn">
+    <div class="container">
+
+      <div class="row">
+        <div class="col-md-4">
+          <div class="card mb-4 box-shadow">
+            <img class="card-img-top" src="{{ url_for('static', filename='img/cal_buffer.jpg') }}" alt="Card image cap">
+            <div class="card-body">
+              <p class="card-text">
+                <strong>
+                  버퍼 몰 농도 계산기:
+                </strong>
+                필요한 몰 농도를 입력하면 버퍼 만들때 필요한 시약의 양을 계산합니다.
+              </p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <a href="/buffer" class="btn btn-sm btn-outline-secondary">바로가기</a>
+
+                </div>
+                <small class="text-muted">0.3b</small>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card mb-4 box-shadow">
+            <img class="card-img-top" src="{{ url_for('static', filename='img/cal_molar.jpg') }}" alt="Card image cap">
+            <div class="card-body">
+              <p class="card-text">
+                <strong>단백질 몰 농도 계산기:</strong>
+                단백질의 크기(kDa)와 농도값(부피와 질량)을 입력하면 몰 농도를 계산합니다.
+              </p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <a href="/molar" class="btn btn-sm btn-outline-secondary">바로가기</a>
+
+                </div>
+                <small class="text-muted">0.1b</small>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card mb-4 box-shadow">
+            <img class="card-img-top" src="{{ url_for('static', filename='img/cal_sequence.jpg') }}" alt="Card image cap">
+            <div class="card-body">
+              <p class="card-text">
+                <strong>시퀀싱 확인하기:</strong>
+                목표 DNA 서열과 시퀀싱 결과를 입력하면 alignment를 수행해줍니다.
+              </p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <a href="/alignment" class="btn btn-sm btn-outline-secondary">바로가기</a>
+
+                </div>
+                <small class="text-muted">0.2b</small>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2ed layer -->
+
+        <div class="col-md-4">
+          <div class="card mb-4 box-shadow">
+            <img class="card-img-top" src="{{ url_for('static', filename='img/cal_broth.jpg') }}" alt="Card image cap">
+            <div class="card-body">
+              <p class="card-text"><strong>배양액 계산기:</strong>
+                LB broth 등을 만들때 필요한 시약량을 계산해줍니다.</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <a href="/broth" class="btn btn-sm btn-outline-secondary">바로가기</a>
+                </div>
+                <small class="text-muted">0.2b</small>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card mb-4 box-shadow">
+            <img class="card-img-top" src="{{ url_for('static', filename='img/cal_oligo.jpg') }}" alt="Card image cap">
+            <div class="card-body">
+              <p class="card-text"><strong>올리고 계산기:</strong>
+                DNA 시퀀스의 Tm, Reverse compliment등을 계산합니다.</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <a href="/oligo" class="btn btn-sm btn-outline-secondary">바로가기</a>
+                </div>
+                <small class="text-muted">0.2b</small>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card mb-4 box-shadow">
+            <img class="card-img-top" src="{{ url_for('static', filename='img/cal_translate.jpg') }}" alt="Card image cap">
+            <div class="card-body">
+              <p class="card-text"><strong>DNA서열 번역기:</strong>
+              DNA서열을 입력하면, 모든 frame에 맞는 아미노산으로 번역해줍니다.</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <a href="/translate" class="btn btn-sm btn-outline-secondary">바로가기</a>
+                </div>
+                <small class="text-muted">0.3a</small>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3ed layer -->
+
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<!-- /.container -->
+
+{% endblock %}

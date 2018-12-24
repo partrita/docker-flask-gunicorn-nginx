@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container">
+    <!-- description -->
+    <div class="py-5 text-center">
+        <img class="d-block mx-auto mb-4" src="{{ url_for('static', filename='img/calculator.png')}}" alt="" width="72"
+            height="72">
+        <h2>배양액 계산기</h2>
+        <p class="lead">
+            만들고자 하는 배양액의 양을 입력하면 조성을 계산해줍니다.
+        </p>
+    </div>
+    <div class="row">
+        <!-- show_results  -->
+        <div class="col-md-4 order-md-2 mb-4">
+            {% if result != None %}
+            <h4 class="d-flex justify-content-between align-items-center mb-3">
+                <span class="text-muted">Your Results</span>
+                <!-- <span class="badge badge-secondary badge-pill">3</span> -->
+            </h4>
+
+            <ul class="list-group mb-3">
+                <!-- iteritems only works in python2, use item for python3 -->
+                {% for key, value in result.iteritems() %}
+                <li class="list-group-item d-flex justify-content-between">
+                    <div>
+                        <h6 class="my-0">
+                            {{ key|e }}
+                        </h6>
+                        <strong>
+                            {{ value|e }}
+                        </strong>
+                        <small class="text-muted">g</small>
+                    </div>
+                </li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        </div>
+        <!-- inputform -->
+        <div class="col-md-8 order-md-1">
+            <h4 class="mb-3">Input section</h4>
+            <form method=post action="">
+                {{form.csrf_token}}
+                <div class="mb-3">
+                    <label>필요한 배양액의 양</label>
+                    <div class="row">
+                        <div class="col-md-5 mb-3">
+                            {{ form.volume(class="form-control") }}
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            {{ form.volume_unit(class="custom-select d-block w-100") }}
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label>배양액 종류</label>
+                    <div class="row">
+                        <div class="col-md-5 mb-3">
+                            {{ form.broth_type(class="custom-select d-block w-100") }}
+                        </div>
+                    </div>
+                </div>
+                <hr class="mb-4">
+                {{ form.submit(class="btn btn-primary btn-lg btn-block")}}
+                <!-- <button class="btn btn-primary btn-lg btn-block" type="submit">Calculate!</button> -->
+            </form>
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<!-- Page Content -->
+<div class="py-5 container">
+    <div class="col d-flex justify-content-center">
+
+        <div class="card text-center" style="width:400px">
+            <div class="card-header">
+                Error
+            </div>
+            <div class="card-body">
+                <img src="{{ url_for('static',filename='img/error_500.png') }}" class="rounded img-fluid" alt="404_cat">
+                <h5 class="card-title mb-3 ">Internal Server Error</h5>
+                <p class="card-text">
+                    내부 오류가 발생했습니다.
+                </p>
+                <a href="/" class="btn btn-secondary">되돌아가기</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /.container -->
+
+{% endblock %}

@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container">
+    <!-- description -->
+    <div class="py-5 text-center">
+        <img class="d-block mx-auto mb-4" src="{{ url_for('static', filename='img/calculator.png')}}" alt="" width="72"
+            height="72">
+        <h2>단백질 몰 농도 계산기</h2>
+        <p class="lead">
+            단백질 농도를 몰 농도로 변환해 줍니다. 적어도 단백질의 크기는 알고 있어야 해요.
+        </p>
+    </div>
+
+    <!-- show_results  -->
+    <div class="row">
+        <div class="col-md-4 order-md-2 mb-4">
+            {% if result != None %}
+            <h4 class="d-flex justify-content-between align-items-center mb-3">
+                <span class="text-muted">Your Results</span>
+                <!-- <span class="badge badge-secondary badge-pill">3</span> -->
+            </h4>
+            <ul class="list-group mb-3">
+                <li class="list-group-item d-flex justify-content-between">
+                    <div>
+                        <h6 class="my-0">
+                            {{ result }}
+                        </h6>
+                        <small class="text-muted">mM</small>
+                    </div>
+                </li>
+            </ul>
+            {% endif %}
+
+        </div>
+        <!-- input_form -->
+        <div class="col-md-8 order-md-1">
+            <h4 class="mb-3">사용자 입력</h4>
+            <form method=post action="">
+                {{form.csrf_token}}
+
+                <div class="mb-3">
+                    <label for="userinput1">단백질의 크기(kDa)</label>
+                    <div class="row">
+
+                        <div class="col-md-5 input-group">
+                            {{ form.molecular_weight(class="form-control") }}
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="userinput2">들어있는 단백질의 양</label>
+                    <div class="row">
+                        <div class="col-md-5 mb-3">
+                            {{ form.mass(class="form-control") }}
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            {{ form.mass_unit(class="custom-select d-block w-100") }}
+                        </div>
+                    </div>
+                    <label for="userinput3">총 부피</label>
+                    <div class="row">
+                        <div class="col-md-5 mb-3">
+                            {{ form.volume(class="form-control") }}
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            {{ form.volume_unit(class="custom-select d-block w-100") }}
+                        </div>
+                    </div>
+                    <p>예를 들어 농도 1mg/ml은 1ml에 1mg이 들어 있는것입니다.</p>
+                </div>
+                <hr class="mb-4">
+                {{ form.submit(class="btn btn-primary btn-lg btn-block")}}
+            </form>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}

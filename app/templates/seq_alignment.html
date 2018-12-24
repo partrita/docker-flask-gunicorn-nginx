@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <!-- description -->
+    <div class="py-5 text-center">
+        <!-- <img class="d-block mx-auto mb-4" src="../../assets/brand/bootstrap-solid.svg" alt="" width="72" height="72"> -->
+        <h2>All in one sequence alignment</h2>
+        <p class="lead"> Fasta 형식의 DNA 시퀀스를 넣으면 알아서 해줍니다. 그래도 이름에 특수문자들은 빼주세요.</p>
+    </div>
+
+    <!-- show_results  -->
+    <div class="col-lg-12">
+        {% if result != None %}
+        <h4 class="d-flex justify-content-between align-items-center mb-3">
+            <span class="text-muted">Your Results</span>
+            <!-- <span class="badge badge-secondary badge-pill">3</span> -->
+        </h4>
+        <ul class="list-group mb-3">
+            <li class="list-group-item d-flex justify-content-between">
+                <div>
+                    <h6 class="my-0">
+                        <a href="\getfile">
+                            {{ result }}
+                        </a>
+                    </h6>
+                    <small class="text-muted">
+                        파일은 텍스트로 구성되어 있습니다. 다시 분석하시려면 페이지 세로고침을 하세요.
+                    </small>
+                </div>
+            </li>
+        </ul>
+        {% endif %}
+    </div>
+    <!-- inputform -->
+    <div class="col-lg-12">
+        <h4 class="mb-3">사용자 입력</h4>
+        <form method=post action="">
+            {{form.csrf_token}}
+            <div class="mb-3">
+                <!-- {{ form.target_seq.label }} -->
+                <label for="input1">목표 DNA 서열</label>
+                <div class="input-group">
+                    {{ form.target_seq(class="form-control") }}
+                </div>
+            </div>
+            <div class="mb-3">
+                <!-- {{ form.query_seq.label }} -->
+                <label for="input2">시퀀싱 결과: DNA 서열</label>
+                <div class="input-group">
+                    {{ form.query_seq(class="form-control") }}
+                </div>
+            </div>
+            <hr class="mb-4">
+            <!-- <h4 class="mb-3">Input section2</h4>
+            <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="checkbox1">
+                <label class="custom-control-label" for="checkbox1">Check box1</label>
+            </div>
+            <hr class="mb-4"> -->
+            {{ form.submit(class="btn btn-primary btn-lg btn-block")}}
+        </form>
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container">
+    <!-- description -->
+    <div class="py-5 text-center">
+        <img class="d-block mx-auto mb-4" src="{{ url_for('static', filename='img/book.png')}}" alt="" width="72"
+            height="72">
+        <h2>TRANSLATE</h2>
+        <p class="lead">
+            DNA 서열을 입력하면 알아서 번역 합니다.
+        </p>
+    </div>
+    <div class="row">
+        <!-- show_results  -->
+        <div class="col-md-12 order-md-1 mb-3">
+            {% if result != None %}
+            <h4 class="d-flex justify-content-between align-items-center mb-2">
+                <span class="text-muted">Your Results</span>
+                <span class="badge badge-secondary badge-pill">6</span>
+            </h4>
+                <p> * 는 Stop codon을 의미 합니다. </p>
+
+            <ul class="list-group mb-2">
+                {% for key, value in result.iteritems() %}
+                <li class="list-group-item d-flex justify-content-between">
+                    <div>
+                        <h6 class="my-0">
+                            {{ key|e }}
+                        </h6>
+                        <p>
+                            {{ value|e }}
+                        </p>
+                       
+                    </div>
+                </li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        </div>
+        <!-- inputform -->
+        <div class="col-md-12 order-md-2 mb-3">
+            <h4 class="mb-3">번역 할 DNA 서열</h4>
+            <form method=post action="">
+                {{form.csrf_token}}
+                <div class="mb-3">
+                            {{ form.target_seq(class="form-control") }}
+                </div>
+                <div class='md-3'>
+                {{ form.submit(class="btn btn-primary btn-lg btn-block")}}
+                </div>
+            </form>
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

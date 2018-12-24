@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<!-- Page Content -->
+<div class="container wow fadeIn">
+
+  <!-- Page Heading/Breadcrumbs -->
+  <h1 class="mt-4 mb-3">Biohacking tools
+    <!-- <small>Subheading</small> -->
+  </h1>
+
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item">
+      <a href="index.html">Home</a>
+    </li>
+    <li class="breadcrumb-item active">Tools</li>
+  </ol>
+
+  <!-- Image Header -->
+  <img class="img-fluid rounded mb-4" src="{{ url_for('static', filename='img/service_banner2.jpg')}}" alt="">
+
+  <!-- Marketing Icons Section -->
+  <div class="row">
+    <div class="col-lg-4 mb-4">
+      <div class="card">
+        <h4 class="card-header">버퍼 몰 농도 계산기</h4>
+        <div class="card-body">
+          <p class="card-text">필요한 몰 농도를 입력하면 버퍼 만들때 필요한 시약의 양을 계산합니다.</p>
+        </div>
+        <div class="card-footer">
+          <a href="/buffer" class="btn btn-outline-info btn-sm">더 알아보기</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4 mb-4">
+      <div class="card">
+        <h4 class="card-header">단백질 몰 농도 계산기</h4>
+        <div class="card-body">
+          <p class="card-text">단백질의 크기(kDa)와 농도값(부피와 질량)을 입력하면 몰 농도를 계산합니다.</p>
+        </div>
+        <div class="card-footer">
+          <a href="/molar"  class="btn btn-outline-info btn-sm">더 알아보기</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4 mb-4">
+      <div class="card">
+        <h4 class="card-header">시퀀싱 확인하기</h4>
+        <div class="card-body">
+          <p class="card-text">목표 DNA 서열과 시퀀싱 결과를 입력하면 alignment를 수행해줍니다.</p>
+        </div>
+        <div class="card-footer">
+          <a href="\sequencing" class="btn btn-outline-info btn-sm">더 알아보기</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4 mb-4">
+      <div class="card">
+        <h4 class="card-header">배양액 계산기</h4>
+        <div class="card-body">
+          <p class="card-text">LB broth 등을 만들때 필요한 시약량을 계산해줍니다.</p>
+        </div>
+        <div class="card-footer">
+          <a href="\broth" class="btn btn-outline-info btn-sm">더 알아보기</a>
+        </div>
+      </div>
+    </div>
+        <div class="col-lg-4 mb-4">
+      <div class="card">
+        <h4 class="card-header">올리고 계산기</h4>
+        <div class="card-body">
+          <p class="card-text">DNA 시퀀스의 Tm, Reverse compliment등을 계산합니다.</p>
+        </div>
+        <div class="card-footer">
+          <a href="\oligo" class="btn btn-outline-info btn-sm">더 알아보기</a>
+        </div>
+      </div>
+    </div>
+        <div class="col-lg-4 mb-4">
+      <div class="card">
+        <h4 class="card-header">DNA서열 번역기</h4>
+        <div class="card-body">
+          <p class="card-text">DNA서열을 입력하면, 모든 frame에 맞는 아미노산으로 번역해줍니다.</p>
+        </div>
+        <div class="card-footer">
+          <a href="\translate" class="btn btn-outline-info btn-sm">더 알아보기</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <!-- /.row -->
+
+</div>
+<!-- /.container -->
+
+{% endblock %}

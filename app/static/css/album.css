@@ -1,0 +1,71 @@
+:root {
+  --jumbotron-padding-y: 3rem;
+}
+
+.jumbotron {
+  padding-top: var(--jumbotron-padding-y);
+  padding-bottom: var(--jumbotron-padding-y);
+  margin-bottom: 0;
+  background-color: #fff;
+}
+
+.jumbotron-billboard {
+  margin-bottom: 0px;
+  /* opacity: 0.2; */
+  /* color: #fff; */
+  /* background: #000 url("https://bootstrapcreative.com/wp-bc/wp-content/uploads/2017/03/learning-story.png") top center no-repeat; */
+  background-image: url("/static/img/index.jpg");
+  /* width: 100%; */
+  /* height: 100%; */
+  background-size: cover;
+  /* overflow: hidden; */
+  /* position:absolute; */
+  top:0;
+  left:0;
+  /* z-index:1; */
+}
+
+.portfolio-1 {
+  background-image: url('/static/img/portfolio_head_0.png');
+  background-size: 100% 100%;
+  background-size: cover;
+}
+.portfolio-2 {
+  background-image: url('/static/img/portfolio_head_1.jpg');
+  background-size: 100% 100%;
+  background-size: cover;
+}
+.portfolio-3 {
+  background-image: url('/static/img/portfolio_head_2.jpg');
+  background-size: 100% 100%;
+  background-size: cover;
+}
+@media (min-width: 768px) {
+  .jumbotron {
+    padding-top: calc(var(--jumbotron-padding-y) * 2);
+    padding-bottom: calc(var(--jumbotron-padding-y) * 2);
+  }
+}
+
+.jumbotron p:last-child {
+  margin-bottom: 0;
+}
+
+.jumbotron-heading {
+  font-weight: 300;
+}
+
+.jumbotron .container {
+  max-width: 40rem;
+}
+
+footer {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+footer p {
+  margin-bottom: .25rem;
+}
+
+.box-shadow { box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05); }
