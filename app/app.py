@@ -57,8 +57,10 @@ def alignment():
         Alignment(target, query)
         result = 'Download'
     return render_template(
-            'seq_alignment.html', title='Sequence alignment',
-            form=form, result=result)
+        'seq_alignment.html',
+        title='Sequence alignment',
+        form=form,
+        result=result)
 
 
 @app.route('/getfile')  # this is a job for GET, not POST
@@ -83,8 +85,10 @@ def calculate():
         result = protein_mole(mass, molecular_weight,
                               mass_unit) * 1000 / (volume * volume_unit)
     return render_template(
-            'cal_molar.html', form=form, result=result,
-            title='Protein molar calculator')
+        'cal_molar.html',
+        form=form,
+        result=result,
+        title='Protein molar calculator')
 
 
 @app.route('/buffer', methods=['GET', 'POST'])
@@ -102,8 +106,7 @@ def make_buffer():
         result_g = result_mg / 1000
         result = {'g': result_g, 'mg': result_mg}
     return render_template(
-        'cal_buffer.html', form=form, result=result,
-        title='Buffer calculator')
+        'cal_buffer.html', form=form, result=result, title='Buffer calculator')
 
 
 @app.route('/broth', methods=['GET', 'POST'])
@@ -123,8 +126,7 @@ def make_broth():
         result = broth_mehod(broth_type, volume * volume_unit)
         # print result
     return render_template(
-            'cal_broth.html', form=form, result=result,
-            title='Broth calculator')
+        'cal_broth.html', form=form, result=result, title='Broth calculator')
 
 
 @app.route('/oligo', methods=['GET', 'POST'])
@@ -135,8 +137,7 @@ def oligo():
         dna = ''.join(form.target_seq.data.split())
         result = Oligo(dna)
     return render_template(
-            'cal_oligo.html', form=form, result=result,
-            title='Oligo calculator')
+        'cal_oligo.html', form=form, result=result, title='Oligo calculator')
 
 
 @app.route('/translate', methods=['GET', 'POST'])
@@ -147,9 +148,11 @@ def trans():
         dna = ''.join(form.target_seq.data.split())
         result = Translate(dna)
     return render_template(
-            'cal_translate.html',
-            form=form, result=result, title='Protein Translator')
+        'cal_translate.html',
+        form=form,
+        result=result,
+        title='Protein Translator')
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0')
+    app.run()

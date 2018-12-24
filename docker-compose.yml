@@ -2,7 +2,7 @@ version: '2'
 
 services:
 
-  dash_app:
+  app:
     container_name: app
     restart: always
     build: ./app
